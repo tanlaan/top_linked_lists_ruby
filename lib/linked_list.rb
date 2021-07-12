@@ -82,6 +82,7 @@ class LinkedList
     end
 
     def to_s
+        # LinkedList pretty print string`
         # ( value ) -> ( value ) -> ( value ) -> nil
         linked_string = ""
         current_node = @head
@@ -90,6 +91,20 @@ class LinkedList
             current_node = current_node.next_node
         end
         linked_string += "nil"
+    end
+
+    # Extra Credit
+    def insert_at(value, index)
+        # TODO: implement out of bounds index error
+        current_index = 0
+        last_node = nil
+        current_node = @head
+        until current_index == index
+            last_node = current_node
+            current_node = current_node.next_node
+            current_index += 1
+        end
+        last_node.next_node = Node.new(value, current_node)
     end
 end
 
